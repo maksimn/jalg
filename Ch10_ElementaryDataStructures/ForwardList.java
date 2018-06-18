@@ -9,10 +9,6 @@ public class ForwardList<T> {
             this.value = value;
         }
 
-        public void setValue(T value) {
-            this.value = value;
-        }
-
         public T getValue() {
             return value;
         }
@@ -26,16 +22,46 @@ public class ForwardList<T> {
         }
     }
 
+    public class ForwardListIterator implements Iterator<T> {
+        private Node current;
+
+        public ForwardListIterator(Node node) {
+            current = node;
+        }
+
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        public T next() {
+            T value = current.getValue();
+
+            current = current.getNext();
+
+            return value;
+        }
+    }
+
     private Node head;
+    private Node tail;
 
     public T getHeadValue() {
         return head.getValue();
     }
 
+    public Iterator<T> getIterator() {
+        return this.new ForwardListIterator(head);
+    }
+
     public void insert(T val) {
         ForwardList<T>.Node node = this.new Node(val);
         
-        head = node;
+        if (head == null) {
+            head = tail = node;
+        } else {
+            tail.setNext(node);
+            tail = tail.getNext();
+        }
     }
 
     public void delete(Node node) {
