@@ -8,10 +8,12 @@ import static org.junit.Assert.assertEquals;
 public class ForwardListTests {
     @Test
     public void insert__addSingleElement__Test() {
-        ForwardList fList = new ForwardList();
-        ForwardList.Node<String> node = new ForwardList.Node<String>(1, "Ivan");
+        String value = "Ivan";
+        ForwardList<String> fList = new ForwardList<String>();
+        ForwardList<String>.Node node = fList.new Node(value);
 
         fList.insert(node);
-        assertEquals("fList.head.key must be equal 1", fList.head.getKey(), 1);
+        assertEquals("fList.head.value must be equal to " + value, 
+            fList.getHead().getValue(), value);
     }
 }
