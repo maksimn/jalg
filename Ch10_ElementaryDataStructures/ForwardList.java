@@ -1,7 +1,7 @@
 package Ch10_ElementaryDataStructures;
 
 public class ForwardList<T> {
-    public class Node {
+    private class Node {
         private T value;
         private Node next;
 
@@ -28,11 +28,13 @@ public class ForwardList<T> {
 
     private Node head;
 
-    public Node getHead() {
-        return head;
+    public T getHeadValue() {
+        return head.getValue();
     }
 
-    public void insert(Node node) {
+    public void insert(T val) {
+        ForwardList<T>.Node node = this.new Node(val);
+        
         head = node;
     }
 

@@ -9,11 +9,11 @@ public class ForwardListTests {
     @Test
     public void insert__addSingleElement__Test() {
         String value = "Ivan";
-        ForwardList<String> fList = new ForwardList<String>();
-        ForwardList<String>.Node node = fList.new Node(value);
+        ForwardList<String> forwardList = new ForwardList<String>();
 
-        fList.insert(node);
-        assertEquals("fList.head.value must be equal to " + value, 
-            fList.getHead().getValue(), value);
+        forwardList.insert(value);
+
+        assertEquals("forwardList.getHeadValue() must be equal to " + value, 
+            forwardList.getHeadValue(), value);
     }
 }
