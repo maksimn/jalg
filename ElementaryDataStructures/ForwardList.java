@@ -34,11 +34,15 @@ public class ForwardList<T> {
         }
 
         public T next() {
-            T value = current.getValue();
+			if (current != null) {
+	            T value = current.getValue();
 
-            current = current.getNext();
+	            current = current.getNext();
 
-            return value;
+	            return value;
+			}
+            
+			return null;
         }
     }
 

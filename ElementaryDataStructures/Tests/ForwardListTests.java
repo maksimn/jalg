@@ -30,6 +30,8 @@ public class ForwardListTests {
         assertEquals(it.next(), value1);
         assertEquals(it.next(), value2);
         assertEquals(it.next(), value3);
+        Object afterNext = it.next();
+		Assert.assertNull(afterNext);
         Assert.assertFalse(it.hasNext());
     }
 }
