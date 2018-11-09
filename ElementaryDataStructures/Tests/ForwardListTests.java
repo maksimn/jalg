@@ -13,8 +13,8 @@ public class ForwardListTests {
 
         forwardList.insert(value);
 
-        assertEquals("forwardList.getHeadValue() must be equal to " + value, 
-            forwardList.getHeadValue(), value);
+        assertEquals("forwardList single element must be equal to " + value, 
+            forwardList.getIterator().next(), value);
     }
 
     @Test 
@@ -33,5 +33,22 @@ public class ForwardListTests {
         Object afterNext = it.next();
 		Assert.assertNull(afterNext);
         Assert.assertFalse(it.hasNext());
+    }
+
+    @Test 
+    public void delete_fromForwardListWith3Elements() {
+        final int a = 3, b = 1, c = 7, d = 5;
+        final ForwardList<Integer> list = new ForwardList<>();
+
+        list.insert(a);
+        list.insert(b);
+        list.insert(c);
+        list.insert(d);
+
+        ForwardList<Integer>.Node node = list.search(c);
+        list.delete(node);
+
+        final String after = "[3, 1, 5]";
+        Assert.assertTrue(list.toString().equals(after));
     }
 }

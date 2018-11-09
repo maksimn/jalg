@@ -1,7 +1,7 @@
 package ElementaryDataStructures;
 
 public class ForwardList<T> {
-    private class Node {
+    public class Node {
         private T value;
         private Node next;
 
@@ -49,10 +49,6 @@ public class ForwardList<T> {
     private Node head;
     private Node tail;
 
-    public T getHeadValue() {
-        return head.getValue();
-    }
-
     public Iterator<T> getIterator() {
         return this.new ForwardListIterator(head);
     }
@@ -69,10 +65,55 @@ public class ForwardList<T> {
     }
 
     public void delete(Node node) {
+        if (head == null || node == null) {
+            return;
+        }
 
+        Node n = head;
+
+        while (n.getNext() != node) {
+            n = n.getNext();
+        }
+
+        n.next = node.next;
     }
 
-    public Node search(int key) {
-        return null;
+    public Node search(T val) {
+        if (head == null) {
+            return null;
+        }
+
+        Node node = head;
+        
+        while (!node.value.equals(val)) {
+            node = node.getNext();
+        }
+        
+        return node;
+    }
+
+    @Override 
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        
+        if (head == null) {
+            return "[]";
+        }
+
+        sb.append("[");
+
+        Node node = head;
+
+        do {
+            sb.append(node.value);
+            if (node != tail) {
+                sb.append(", ");
+            }
+            node = node.getNext();
+        } while(node != null);
+
+        sb.append("]");
+
+        return sb.toString();
     }
 }
