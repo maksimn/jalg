@@ -36,7 +36,23 @@ public class ForwardListTests {
     }
 
     @Test 
-    public void delete_fromForwardListWith3Elements() {
+    public void search_forwardListWith4Elements() {
+        final int a = 3, b = 1, c = 7, d = 5;
+        final ForwardList<Integer> list = new ForwardList<>();
+
+        list.insert(a);
+        list.insert(b);
+        list.insert(c);
+        list.insert(d);
+
+        ForwardList<Integer>.Node node = list.search(c);
+        int result = node.getValue().intValue();
+        Assert.assertEquals(result, c);
+        Assert.assertEquals(node.getNext().getValue().intValue(), d);
+    }
+
+    @Test 
+    public void delete_fromForwardListWith4Elements() {
         final int a = 3, b = 1, c = 7, d = 5;
         final ForwardList<Integer> list = new ForwardList<>();
 
