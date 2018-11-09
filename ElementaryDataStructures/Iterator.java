@@ -1,4 +1,4 @@
-package Ch10_ElementaryDataStructures;
+package ElementaryDataStructures;
 
 public interface Iterator<T> {
     boolean hasNext();

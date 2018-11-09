@@ -1,7 +1,6 @@
-package Ch10_ElementaryDataStructures.Tests;
+package ElementaryDataStructures.Tests;
 
-import Ch10_ElementaryDataStructures.*;
-
+import ElementaryDataStructures.*;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import org.junit.Assert;

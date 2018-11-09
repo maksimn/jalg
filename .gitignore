@@ -1,3 +1,4 @@
 **/*.class
 **/*.jar
 .vscode
+**.DS_Store

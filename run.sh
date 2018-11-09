@@ -1,5 +1,4 @@
 #!/bin/bash
-javac Ch10_ElementaryDataStructures/ForwardList.java Ch10_ElementaryDataStructures/Tests/ForwardListTests.java 
-javac TestRunner.java
+javac -cp "lib/*" ElementaryDataStructures/Iterator.java ElementaryDataStructures/ForwardList.java ElementaryDataStructures/Tests/ForwardListTests.java TestRunner.java
 
-java TestRunner
+java -cp "./:lib/*"  TestRunner
