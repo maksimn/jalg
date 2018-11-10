@@ -6,7 +6,10 @@ import ElementaryDataStructures.Tests.*;
 
 public class TestRunner {
   public static void main(String[] args) {
-    Result result = JUnitCore.runClasses(ForwardListTests.class);
+    Result result = JUnitCore.runClasses(
+      ForwardListTests.class,
+      ListStackTests.class
+    );
 		
     for (Failure failure : result.getFailures()) {
       System.out.println(failure.toString());

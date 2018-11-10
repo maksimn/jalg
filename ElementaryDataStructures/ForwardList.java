@@ -1,5 +1,8 @@
 package ElementaryDataStructures;
 
+/**
+ * Singly linked list
+ */
 public class ForwardList<T> {
     public class Node {
         private T value;
