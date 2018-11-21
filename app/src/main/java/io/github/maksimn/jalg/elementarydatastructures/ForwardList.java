@@ -1,4 +1,4 @@
-package ElementaryDataStructures;
+package io.github.maksimn.jalg.elementarydatastructures;
 
 /**
  * Singly linked list
@@ -37,15 +37,15 @@ public class ForwardList<T> {
         }
 
         public T next() {
-			if (current != null) {
-	            T value = current.getValue();
+            if (current != null) {
+                T value = current.getValue();
 
-	            current = current.getNext();
+                current = current.getNext();
 
-	            return value;
-			}
-            
-			return null;
+                return value;
+            }
+
+            return null;
         }
     }
 
@@ -58,7 +58,7 @@ public class ForwardList<T> {
 
     public void insert(T val) {
         ForwardList<T>.Node node = this.new Node(val);
-        
+
         if (head == null) {
             head = tail = node;
         } else {
@@ -87,36 +87,11 @@ public class ForwardList<T> {
         }
 
         Node node = head;
-        
+
         while (!node.value.equals(val)) {
             node = node.getNext();
         }
-        
+
         return node;
-    }
-
-    @Override 
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        
-        if (head == null) {
-            return "[]";
-        }
-
-        sb.append("[");
-
-        Node node = head;
-
-        do {
-            sb.append(node.value);
-            if (node != tail) {
-                sb.append(", ");
-            }
-            node = node.getNext();
-        } while(node != null);
-
-        sb.append("]");
-
-        return sb.toString();
     }
 }

@@ -1,23 +1,21 @@
-package ElementaryDataStructures.Tests;
+package io.github.maksimn.jalg.elementarydatastructures;
 
-import ElementaryDataStructures.*;
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
 import org.junit.Assert;
 
 public class ForwardListTests {
     @Test
     public void insert__addSingleElement__Test() {
         String value = "Ivan";
-        ForwardList<String> forwardList = new ForwardList<String>();
+        ForwardList<String> forwardList = new ForwardList<>();
 
         forwardList.insert(value);
 
-        assertEquals("forwardList single element must be equal to " + value, 
-            forwardList.getIterator().next(), value);
+        Assert.assertEquals("forwardList single element must be equal to " + value,
+                forwardList.getIterator().next(), value);
     }
 
-    @Test 
+    @Test
     public void insert__addThreeElements__Test() {
         String value1 = "abc", value2 = "def", value3 = "ghi";
         ForwardList<String> forwardList = new ForwardList<String>();
@@ -27,15 +25,15 @@ public class ForwardListTests {
         forwardList.insert(value3);
 
         Iterator<String> it = forwardList.getIterator();
-        assertEquals(it.next(), value1);
-        assertEquals(it.next(), value2);
-        assertEquals(it.next(), value3);
+        Assert.assertEquals(it.next(), value1);
+        Assert.assertEquals(it.next(), value2);
+        Assert.assertEquals(it.next(), value3);
         Object afterNext = it.next();
-		Assert.assertNull(afterNext);
+        Assert.assertNull(afterNext);
         Assert.assertFalse(it.hasNext());
     }
 
-    @Test 
+    @Test
     public void search_forwardListWith4Elements() {
         final int a = 3, b = 1, c = 7, d = 5;
         final ForwardList<Integer> list = new ForwardList<>();
@@ -51,7 +49,7 @@ public class ForwardListTests {
         Assert.assertEquals(node.getNext().getValue().intValue(), d);
     }
 
-    @Test 
+    @Test
     public void delete_fromForwardListWith4Elements() {
         final int a = 3, b = 1, c = 7, d = 5;
         final ForwardList<Integer> list = new ForwardList<>();
@@ -64,7 +62,13 @@ public class ForwardListTests {
         ForwardList<Integer>.Node node = list.search(c);
         list.delete(node);
 
-        final String after = "[3, 1, 5]";
-        Assert.assertTrue(list.toString().equals(after));
+        Iterator<Integer> it = list.getIterator();
+        int first = it.next();
+        int second = it.next();
+        int third = it.next();
+
+        Assert.assertEquals(a, first);
+        Assert.assertEquals(b, second);
+        Assert.assertEquals(d, third);
     }
 }
